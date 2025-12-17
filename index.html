@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Мой первый Mini App</title>
+</head>
+<body>
+
+  <h1>Мой первый Mini App</h1>
+  <p>Нажатий: <span id="count">0</span></p>
+
+  <button onclick="increase()">Нажми меня</button>
+
+  <script>
+    let count = 0;
+
+    function increase() {
+      count = count + 1;
+      document.getElementById("count").innerText = count;
+    }
+  </script>
+
+</body>
+</html>
