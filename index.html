@@ -1,1 +1,45 @@
-https://xcjk5vmcnb-svg.github.io/Thirdminiapp/
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+
+  <h2 id="hello">Загрузка...</h2>
+
+  <p>Действий осталось: <span id="left">3</span></p>
+
+  <button onclick="doAction()">Сделать действие</button>
+
+  <p id="status"></p>
+
+  <script>
+    let tg = window.Telegram.WebApp;
+    tg.ready();
+
+    let user = tg.initDataUnsafe.user;
+    let name = user ? user.first_name : "друг";
+
+    document.getElementById("hello").innerText =
+      "Привет, " + name;
+
+    let actions = 3;
+
+    function doAction() {
+      if (actions > 0) {
+        actions--;
+        document.getElementById("left").innerText = actions;
+        document.getElementById("status").innerText =
+          "Действие выполнено ✅";
+      } else {
+        document.getElementById("status").innerText =
+          "Лимит исчерпан ❌ Дальше — платно";
+      }
+    }
+  </script>
+
+</body>
+</html>
